@@ -1,5 +1,10 @@
 name: Reusable Workflow
-on: workflow_call
+on:
+  workflow_call:
+    inputs:
+      config-path:
+        required: true
+        type: string
 jobs:
   Deploy:
     runs-on: ubuntu-latest

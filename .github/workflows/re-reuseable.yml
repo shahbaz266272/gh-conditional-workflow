@@ -71,7 +71,7 @@ jobs:
     needs: build
     uses: ./.github/workflows/reusable.yml
     with:
-      config-path: .github/workflows/reusable.yml
+      config-path: .github/workflows/reusable.yml     
 
   report:
     needs: [lint, deploy]
