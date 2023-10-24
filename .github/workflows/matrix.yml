@@ -5,14 +5,14 @@ jobs:
     continue-on-error: true
     strategy:
       matrix:
-        node-version: [16, 17]
+        node-version: [16, 18]
         oerating-system: [ubuntu-latest, windows-latest]
-        include:
-          - node-version: 18
-            operating-system: ubuntu-latest
-        exclude:
-          - node-version: 16
-            operating-system: windows-latest
+        # include:
+        #   - node-version: 18
+        #     operating-system: ubuntu-latest
+        # exclude:
+        #   - node-version: 16
+        #     operating-system: windows-latest
 
     runs-on: ${{ matrix.oerating-system }}
     steps:
