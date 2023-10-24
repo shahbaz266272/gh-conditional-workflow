@@ -1,4 +1,4 @@
-name: Continue web deployment
+name: Continue Website Deployment
 on:
   push:
     branches:
@@ -32,9 +32,10 @@ jobs:
           path: node_modules
           key: deps-node-modules-${{ hashFiles('**/package-lock.json') }}
       - name: Install dependencies
-        continue-on-error: true  
+        if: steps.cache.outputs.cache-hit != 'true'
         run: npm ci
       - name: Test code
+        continue-on-error: true  
         id: run-tests
         run: npm run test
       - name: Upload test report
